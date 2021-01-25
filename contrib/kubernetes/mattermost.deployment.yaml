@@ -7,7 +7,12 @@ metadata:
     tier: app
   namespace: default
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: mattermost
+      tier: app
+  strategy:
+    type: Recreate
   template:
     metadata:
       name: mattermost-app
